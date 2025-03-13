@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Gerenciador de Tarefas
 
-## Getting Started
+Este é um projeto de Gerenciador de Tarefas desenvolvido com [Next.js](https://nextjs.org/), [NestJS](https://nestjs.com/), [Tailwind CSS](https://tailwindcss.com/) e [PostgreSQL](https://www.postgresql.org/). A aplicação permite criar, editar e excluir tarefas, oferecendo uma interface responsiva e suporte a tema escuro.
 
-First, run the development server:
+## Demonstração
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+A aplicação está hospedada no Vercel e pode ser acessada em:
+[Gerenciador de Tarefas](https://gerenciador-tarefas-pied.vercel.app/)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tecnologias Utilizadas
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Next.js** - Framework para React com suporte a SSR e SSG.
+- **NestJS** - Framework para a API backend em Node.js.
+- **Tailwind CSS** - Para estilização rápida e responsiva.
+- **PostgreSQL** - Banco de dados relacional.
+- **Prisma** - ORM para interagir com o banco de dados.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Instalação e Execução
 
-## Learn More
+Para rodar o projeto localmente, siga os passos abaixo.
 
-To learn more about Next.js, take a look at the following resources:
+### Requisitos
+- Node.js e pnpm instalados
+- PostgreSQL configurado
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Passos
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/devdenisviana/gerenciador-tarefas.git
+   cd seu-repositorio
+   ```
 
-## Deploy on Vercel
+2. Instale as dependências:
+   ```bash
+   pnpm install
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. Configure o banco de dados PostgreSQL no arquivo `.env`:
+   ```env
+   DATABASE_URL=postgresql://usuario:senha@localhost:5432/nome_do_banco
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+4. Rode as migrações do Prisma:
+   ```bash
+   pnpm prisma migrate dev
+   ```
+
+5. Inicie o backend NestJS:
+   ```bash
+   pnpm start:server
+   ```
+
+6. Inicie o frontend Next.js:
+   ```bash
+   pnpm dev
+   ```
+
+7. Acesse a aplicação em [http://localhost:3000](http://localhost:3000)
+
+## Funcionalidades
+
+- Adicionar novas tarefas
+- Editar tarefas existentes
+- Excluir tarefas
+- Suporte a tema escuro
+- Interface responsiva
+
+## API Endpoints
+
+A API, desenvolvida com NestJS, fornece os seguintes endpoints:
+
+- `GET /tasks` - Retorna todas as tarefas
+- `POST /tasks` - Cria uma nova tarefa
+- `PUT /tasks/:id` - Atualiza uma tarefa existente
+- `DELETE /tasks/:id` - Exclui uma tarefa
+
+## Licença
+
+Este projeto está licenciado sob a [MIT License](LICENSE).
+
